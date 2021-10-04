@@ -21,7 +21,7 @@ namespace AccidentesTransito.App.Persistencia
 
         public void DeleteAgente(int idAgente)
         {
-            var agenteEncontrado = _appContext.Agente.FirstOrDefault(a => a.IdAgente == idAgente);
+            var agenteEncontrado = _appContext.Agentes.FirstOrDefault(a => a.IdAgente == idAgente);
             if(agenteEncontrado == null){
                 return;
             }
@@ -31,17 +31,17 @@ namespace AccidentesTransito.App.Persistencia
 
         public IEnumerable<Agente> GetAllAgentes()
         {
-            return _appContext.Agente;
+            return _appContext.Agentes;
         }
 
         public Agente GetAgente(int idAgente)
         {
-            return _appContext.Agente.FirstOrDefault(a => a.IdAgente == idAgente);
+            return _appContext.Agentes.FirstOrDefault(a => a.IdAgente == idAgente);
         }
 
         public Agente UpdateAgente(Agente agente)
         {
-            var AgenteEncontrado = _appContext.Agente.FirstOrDefault(a => a.IdAgente == agente.IdAgente);
+            var AgenteEncontrado = _appContext.Agentes.FirstOrDefault(a => a.IdAgente == agente.IdAgente);
             if(AgenteEncontrado != null){
                 AgenteEncontrado.Nombres = agente.Nombres;
                 AgenteEncontrado.Apellidos = agente.Apellidos;

@@ -21,7 +21,7 @@ namespace AccidentesTransito.App.Persistencia
 
         public void DeletePeaton(int idPeaton)
         {
-            var peatonEncontrado = _appContext.Peaton.FirstOrDefault(p => p.Id == idPeaton);
+            var peatonEncontrado = _appContext.Peatones.FirstOrDefault(p => p.Id == idPeaton);
             if(peatonEncontrado == null){
                 return;
             }
@@ -31,17 +31,17 @@ namespace AccidentesTransito.App.Persistencia
 
         public IEnumerable<Peaton> GetAllPeatones()
         {
-            return _appContext.Peaton;
+            return _appContext.Peatones;
         }
 
         public Peaton GetPeaton(int idPeaton)
         {
-            return _appContext.Peaton.FirstOrDefault(p => p.Id == idPeaton);
+            return _appContext.Peatones.FirstOrDefault(p => p.Id == idPeaton);
         }
 
         public Peaton UpdatePeaton(Peaton peaton)
         {
-            var peatonEncontrado = _appContext.Peaton.FirstOrDefault(p => p.Id == peaton.Id);
+            var peatonEncontrado = _appContext.Peatones.FirstOrDefault(p => p.Id == peaton.Id);
             if(peatonEncontrado != null){
                 peatonEncontrado.Nombres = peaton.Nombres;
                 peatonEncontrado.Apellidos = peaton.Apellidos;

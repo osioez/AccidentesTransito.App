@@ -21,7 +21,7 @@ namespace AccidentesTransito.App.Persistencia
 
         public void DeleteConductor(int documentoIdentidad)
         {
-            var conductorEncontrado = _appContext.Conductor.FirstOrDefault(c => c.DocumentoIdentidad == documentoIdentidad);
+            var conductorEncontrado = _appContext.Conductores.FirstOrDefault(c => c.DocumentoIdentidad == documentoIdentidad);
             if(conductorEncontrado == null){
                 return;
             }
@@ -31,17 +31,17 @@ namespace AccidentesTransito.App.Persistencia
 
         public IEnumerable<Conductor> GetAllConductores()
         {
-            return _appContext.Conductor;
+            return _appContext.Conductores;
         }
 
         public Conductor GetConductor(int documentoIdentidad)
         {
-            return _appContext.Conductor.FirstOrDefault(c => c.DocumentoIdentidad == documentoIdentidad);
+            return _appContext.Conductores.FirstOrDefault(c => c.DocumentoIdentidad == documentoIdentidad);
         }
 
         public Conductor UpdateConductor(Conductor conductor)
         {
-            var ConductorEncontrado = _appContext.Conductor.FirstOrDefault(c => c.DocumentoIdentidad == conductor.DocumentoIdentidad);
+            var ConductorEncontrado = _appContext.Conductores.FirstOrDefault(c => c.DocumentoIdentidad == conductor.DocumentoIdentidad);
             if(ConductorEncontrado != null){
                 ConductorEncontrado.Nombres = conductor.Nombres;
                 ConductorEncontrado.Apellidos = conductor.Apellidos;

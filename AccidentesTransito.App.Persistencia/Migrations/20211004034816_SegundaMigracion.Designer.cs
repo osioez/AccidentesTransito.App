@@ -4,35 +4,22 @@ using AccidentesTransito.App.Persistencia;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AccidentesTransito.App.Persistencia.Migrations
 {
     [DbContext(typeof(AppContext))]
-    partial class AppContextModelSnapshot : ModelSnapshot
+    [Migration("20211004034816_SegundaMigracion")]
+    partial class SegundaMigracion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("AccidentePeaton", b =>
-                {
-                    b.Property<int>("AccidentesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PeatonesId")
-                        .HasColumnType("int");
-
-                    b.HasKey("AccidentesId", "PeatonesId");
-
-                    b.HasIndex("PeatonesId");
-
-                    b.ToTable("AccidentePeaton");
-                });
 
             modelBuilder.Entity("AccidentesTransito.App.Dominio.Accidente", b =>
                 {
@@ -72,33 +59,6 @@ namespace AccidentesTransito.App.Persistencia.Migrations
                     b.HasIndex("BarrioId");
 
                     b.ToTable("Accidentes");
-                });
-
-            modelBuilder.Entity("AccidentesTransito.App.Dominio.AccidenteConductorVehiculo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("AccidenteId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ConductorId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("VehiculoId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AccidenteId");
-
-                    b.HasIndex("ConductorId");
-
-                    b.HasIndex("VehiculoId");
-
-                    b.ToTable("AccidenteConductorVehiculo");
                 });
 
             modelBuilder.Entity("AccidentesTransito.App.Dominio.Agente", b =>
@@ -174,6 +134,9 @@ namespace AccidentesTransito.App.Persistencia.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("AccidenteId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Apellidos")
                         .HasColumnType("nvarchar(max)");
 
@@ -187,6 +150,8 @@ namespace AccidentesTransito.App.Persistencia.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AccidenteId");
 
                     b.ToTable("Peatones");
                 });
@@ -235,21 +200,6 @@ namespace AccidentesTransito.App.Persistencia.Migrations
                     b.ToTable("Vehiculos");
                 });
 
-            modelBuilder.Entity("AccidentePeaton", b =>
-                {
-                    b.HasOne("AccidentesTransito.App.Dominio.Accidente", null)
-                        .WithMany()
-                        .HasForeignKey("AccidentesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AccidentesTransito.App.Dominio.Peaton", null)
-                        .WithMany()
-                        .HasForeignKey("PeatonesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("AccidentesTransito.App.Dominio.Accidente", b =>
                 {
                     b.HasOne("AccidentesTransito.App.Dominio.Agente", "Agente")
@@ -265,25 +215,11 @@ namespace AccidentesTransito.App.Persistencia.Migrations
                     b.Navigation("Barrio");
                 });
 
-            modelBuilder.Entity("AccidentesTransito.App.Dominio.AccidenteConductorVehiculo", b =>
+            modelBuilder.Entity("AccidentesTransito.App.Dominio.Peaton", b =>
                 {
-                    b.HasOne("AccidentesTransito.App.Dominio.Accidente", "Accidente")
-                        .WithMany("AccidenteConductorVehiculo")
+                    b.HasOne("AccidentesTransito.App.Dominio.Accidente", null)
+                        .WithMany("Peatones")
                         .HasForeignKey("AccidenteId");
-
-                    b.HasOne("AccidentesTransito.App.Dominio.Conductor", "Conductor")
-                        .WithMany()
-                        .HasForeignKey("ConductorId");
-
-                    b.HasOne("AccidentesTransito.App.Dominio.Vehiculo", "Vehiculo")
-                        .WithMany()
-                        .HasForeignKey("VehiculoId");
-
-                    b.Navigation("Accidente");
-
-                    b.Navigation("Conductor");
-
-                    b.Navigation("Vehiculo");
                 });
 
             modelBuilder.Entity("AccidentesTransito.App.Dominio.Vehiculo", b =>
@@ -297,7 +233,7 @@ namespace AccidentesTransito.App.Persistencia.Migrations
 
             modelBuilder.Entity("AccidentesTransito.App.Dominio.Accidente", b =>
                 {
-                    b.Navigation("AccidenteConductorVehiculo");
+                    b.Navigation("Peatones");
                 });
 #pragma warning restore 612, 618
         }

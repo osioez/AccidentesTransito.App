@@ -21,7 +21,7 @@ namespace AccidentesTransito.App.Persistencia
 
         public void DeleteVehiculo(string placaVehiculo)
         {
-            var VehiculoEncontrado = _appContext.Vehiculo.FirstOrDefault(v => v.Placa == placaVehiculo);
+            var VehiculoEncontrado = _appContext.Vehiculos.FirstOrDefault(v => v.Placa == placaVehiculo);
             if(VehiculoEncontrado == null){
                 return;
             }
@@ -31,17 +31,17 @@ namespace AccidentesTransito.App.Persistencia
 
         public IEnumerable<Vehiculo> GetAllVehiculos()
         {
-            return _appContext.Vehiculo;
+            return _appContext.Vehiculos;
         }
 
         public Vehiculo GetVehiculo(string placaVehiculo)
         {
-            return _appContext.Vehiculo.FirstOrDefault(v => v.Placa == placaVehiculo);
+            return _appContext.Vehiculos.FirstOrDefault(v => v.Placa == placaVehiculo);
         }
 
         public Vehiculo UpdateVehiculo(Vehiculo vehiculo)
         {
-            var vehiculoEncontrado = _appContext.Vehiculo.FirstOrDefault(v => v.Id == vehiculo.Id);
+            var vehiculoEncontrado = _appContext.Vehiculos.FirstOrDefault(v => v.Id == vehiculo.Id);
             if(vehiculoEncontrado != null){
                 vehiculoEncontrado.CapacidadPasajeros = vehiculo.CapacidadPasajeros;
                 vehiculoEncontrado.Marca = vehiculo.Marca;

@@ -4,13 +4,17 @@ using AccidentesTransito.App.Dominio;
 namespace AccidentesTransito.App.Persistencia
 {
     public class AppContext : DbContext{
-        public DbSet<Accidente> Accidente {get; set;}
-        public DbSet<Agente> Agente {get; set;}
-        public DbSet<Barrio> Barrio {get; set;}
-        public DbSet<Conductor> Conductor {get; set;}
-        public DbSet<Peaton> Peaton {get; set;}
-        public DbSet<TipoVehiculo> TipoVehiculo {get; set;}
-        public DbSet<Vehiculo> Vehiculo {get; set;}
+        public DbSet<Accidente> Accidentes {get; set;}
+        public DbSet<Agente> Agentes {get; set;}
+        public DbSet<Barrio> Barrios {get; set;}
+        public DbSet<Conductor> Conductores {get; set;}
+        public DbSet<Peaton> Peatones {get; set;}
+        public DbSet<TipoVehiculo> TiposVehiculos {get; set;}
+        public DbSet<Vehiculo> Vehiculos {get; set;}
+    
+        public DbSet<AccidenteConductorVehiculo> AccidenteConductorVehiculo {get; set;}
+
+        
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

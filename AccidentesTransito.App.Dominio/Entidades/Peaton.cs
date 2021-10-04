@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+
+
 namespace AccidentesTransito.App.Dominio
 {
      public class Peaton:IPersona
@@ -8,6 +11,6 @@ namespace AccidentesTransito.App.Dominio
         public String Nombres {get;set;}
         public String Apellidos {get;set;}
         public bool PresentaDiscapacidad {get; set;}
-        
+        public ICollection<Accidente> Accidentes {get; set;}
     }
 }

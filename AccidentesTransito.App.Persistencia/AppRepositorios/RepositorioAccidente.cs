@@ -21,12 +21,12 @@ namespace AccidentesTransito.App.Persistencia
 
         public IEnumerable<Accidente> GetAllAccidentes()
         {
-            return _appContext.Accidente;
+            return _appContext.Accidentes;
         }
 
         public Accidente GetAccidente(int idAccidente)
         {
-            return _appContext.Accidente.FirstOrDefault(a => a.Id == idAccidente);
+            return _appContext.Accidentes.FirstOrDefault(a => a.Id == idAccidente);
         }
 
     }
