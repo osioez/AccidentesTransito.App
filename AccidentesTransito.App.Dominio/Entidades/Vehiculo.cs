@@ -9,7 +9,5 @@ namespace AccidentesTransito.App.Dominio
         public int Modelo {get; set;}
         public TipoVehiculo TipoVehiculo {get; set;}
         public string Placa {get; set;}
-        public Conductor Conductor {get; set;}
-        public bool CondutorEsPropietario {get; set;}
     }
 }
