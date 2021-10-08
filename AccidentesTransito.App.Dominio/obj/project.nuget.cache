@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "A6i/X5zxtXKzQWF2CHgZCWeuMTSYr+CXTBgsNMRtIKRHYf5mLqPdiexCIZBry9HGNV8nRTL+kT4f/PDzGpqnGg==",
+  "dgSpecHash": "8kC1Jof2vwm+h6wjQQRPHeAHiIdfYgB5SV2BxTChEb79Uu3Yjr8fUebY7XsdB0O1Va8gs1ocp2X1oz0Q29ReUA==",
   "success": true,
-  "projectFilePath": "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/AccidentesTransito.App.Dominio.csproj",
+  "projectFilePath": "C:\\Users\\cmmarting\\Desktop\\AccidentesTransito.App\\AccidentesTransito.App.Dominio\\AccidentesTransito.App.Dominio.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

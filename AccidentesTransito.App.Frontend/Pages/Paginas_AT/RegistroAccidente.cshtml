@@ -1,0 +1,214 @@
+﻿@page
+@model AccidentesTransito.App.Frontend.Pages.RegistroAccidenteModel
+@{
+}
+
+<form class="row g-3">
+			<div style="justify-content:center; margin: 50px; text-align: center;">
+				<h1>Formulario unico para el registro de accidentes de transito.</h1>
+				<h3 style="margin: 20px;">Informacion general de accidentes</h3>
+			</div>
+		  <div class="col-md-4">
+		    <label for="inputEmail4" class="form-label">ID Agente</label>
+		    <input type="email" class="form-control" id="inputEmail4">
+		  </div>
+
+		  <div class="col-md-4">
+		    <label for="inputPassword4" class="form-label">Cantidad Lesionados</label>
+		    <input type="password" class="form-control" id="inputPassword4">
+		  </div>
+
+		  <div class="col-md-4">
+		    <label for="inputPassword4" class="form-label">Cantidad Fallecidos</label>
+		    <input type="password" class="form-control" id="inputPassword4">
+		  </div>
+
+		  <div class="col-md-4">
+		    <label for="inputPassword4" class="form-label">Barrio</label>
+		    <input type="password" class="form-control" id="inputPassword4">
+		  </div>
+
+		  <div class="col-md-4">
+		    <label for="inputPassword4" class="form-label">Georreferencia X</label>
+		    <input type="password" class="form-control" id="inputPassword4">
+		  </div>
+
+		  <div class="col-md-4">
+		    <label for="inputPassword4" class="form-label">Georreferencia Y</label>
+		    <input type="password" class="form-control" id="inputPassword4">
+		  </div>
+
+		  <div class="col-12">
+		    <label for="inputAddress2" class="form-label">Descripccion</label>
+		    <textarea type="text" class="form-control"></textarea>
+		  </div>
+		</form><br><br><hr><br><br>
+		
+		<form class="row g-3" style="align-items: center;">
+			<div style="justify-content:center;text-align: center;">
+				<h3 style="margin: 20px;">Vehículos Implicados</h3>
+			</div>
+
+			<div class="row mb-3">
+				<label for="colFormLabel" class="col-sm-2 col-form-label">Busqueda por placa</label>
+
+				<div class="col-sm-6">
+					<input type="email" class="form-control" id="colFormLabel">
+				</div>
+
+				<div class="col-4">
+					<button type="submit" class="btn btn-success">Agregar</button>
+				</div>
+			</div>
+
+			<table class="table table-bordered table-hover">
+			  <thead>
+			    <tr>
+			    	<th scope="col">PLACA</th>
+			      <th scope="col">MARCA</th>
+			      <th scope="col">MODELO</th>
+			      <th scope="col">TIPO</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td>0001</td>
+			      <td>Ford</td>
+			      <td>2000</td>
+			      <td>Camioneta</td>			      
+			    </tr>
+			    <tr>
+			      <td>0002</td>
+			      <td>Mazda</td>
+			      <td>2010</td>
+			      <td>Coupe</td>			      
+			    </tr>
+			    <tr>
+			      <td>0003</td>
+			      <td>Toyota</td>
+			      <td>2017</td>
+			      <td>Deportivo</td>			      
+			    </tr>
+			    <tr>
+			      <td>0004</td>
+			      <td>Nissan</td>
+			      <td>2015</td>
+			      <td>Camioneta</td>			      
+			    </tr>
+			  </tbody>
+			</table>
+		</form><br><br><hr><br><br>
+
+		<form class="row g-3" style="align-items: center;">
+			<div style="justify-content:center;text-align: center;">
+				<h3 style="margin: 20px;">Conductores Implicados</h3>
+			</div>
+
+			<div class="row mb-3">
+				<label for="colFormLabel" class="col-sm-2 col-form-label">Busqueda por número de identificacion</label>
+
+				<div class="col-sm-6">
+					<input type="email" class="form-control" id="colFormLabel">
+				</div>
+
+				<div class="col-4">
+					<button type="submit" class="btn btn-success">Agregar</button>
+				</div>
+			</div>
+
+			<table class="table table-bordered table-hover">
+			  <thead>
+			    <tr>
+			      <th scope="col">Numero Identificacion</th>
+			      <th scope="col">Nombres</th>
+			      <th scope="col">Tipo licencia</th>
+			      <th scope="col">Placa de Vehiculo Implicado</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td>123456</td>
+			      <td>Ana Quevedo</td>
+			      <td>B1</td>
+			      <td>0001</td>			      
+			    </tr>
+			    <tr>
+			      <td>654321</td>
+			      <td>Tomas Ariza</td>
+			      <td>C1</td>
+			      <td>006</td>			      
+			    </tr>
+			    <tr>
+			      <td>135264</td>
+			      <td>Ryan Perez</td>
+			      <td>C2</td>
+			      <td>003</td>			      
+			    </tr>
+			    <tr>
+			      <td>246135</td>
+			      <td>Dayama Montes</td>
+			      <td>B3</td>
+			      <td>002</td>			      
+			    </tr>
+			  </tbody>
+			</table>
+		</form><br><br><hr><br><br>
+
+		<form class="row g-3" style="align-items: center;">
+			<div style="justify-content:center;text-align: center;">
+				<h3 style="margin: 20px;">Peatones Implicados</h3>
+			</div>
+
+			<div class="row mb-3">
+				<label for="colFormLabel" class="col-sm-2 col-form-label">Busqueda por número de identificacion</label>
+
+				<div class="col-sm-6">
+					<input type="email" class="form-control" id="colFormLabel">
+				</div>
+
+				<div class="col-4">
+					<button type="submit" class="btn btn-success">Agregar</button>
+				</div>
+			</div>
+
+			<table class="table table-bordered table-hover">
+			  <thead>
+			    <tr>
+			      <th scope="col">Numero Identificacion</th>
+			      <th scope="col">Nombres</th>
+			      <th scope="col">Apellidos</th>
+			      <th scope="col">Presenta discapacidad</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td>123456</td>
+			      <td>Jose </td>
+			      <td>Quevedo</td>
+			      <td>No</td>			      
+			    </tr>
+			    <tr>
+			      <td>654321</td>
+			      <td>Lina </td>
+			      <td>Ariza</td>
+			      <td>No</td>			      
+			    </tr>
+			    <tr>
+			      <td>135264</td>
+			      <td>Rony </td>
+			      <td>Coleman</td>
+			      <td>Si</td>			      
+			    </tr>
+			    <tr>
+			      <td>246135</td>
+			      <td>Stefany </td>
+			      <td>Robles</td>
+			      <td>No</td>			      
+			    </tr>
+			  </tbody>
+			</table>
+		</form><br><br>
+
+		<div class="col-12">
+			<button style="margin: 15px;" type="submit" class="btn btn-success">Registrar Accidente</button>
+		</div>

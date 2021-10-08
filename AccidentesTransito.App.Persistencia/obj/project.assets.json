@@ -5814,19 +5814,19 @@
     ]
   },
   "packageFolders": {
-    "/home/andresmya/.nuget/packages/": {}
+    "C:\\Users\\cmmarting\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Persistencia/AccidentesTransito.App.Persistencia.csproj",
+      "projectUniqueName": "C:\\Users\\cmmarting\\Desktop\\AccidentesTransito.App\\AccidentesTransito.App.Persistencia\\AccidentesTransito.App.Persistencia.csproj",
       "projectName": "AccidentesTransito.App.Persistencia",
-      "projectPath": "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Persistencia/AccidentesTransito.App.Persistencia.csproj",
-      "packagesPath": "/home/andresmya/.nuget/packages/",
-      "outputPath": "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Persistencia/obj/",
+      "projectPath": "C:\\Users\\cmmarting\\Desktop\\AccidentesTransito.App\\AccidentesTransito.App.Persistencia\\AccidentesTransito.App.Persistencia.csproj",
+      "packagesPath": "C:\\Users\\cmmarting\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\cmmarting\\Desktop\\AccidentesTransito.App\\AccidentesTransito.App.Persistencia\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/andresmya/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\cmmarting\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -5838,8 +5838,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/AccidentesTransito.App.Dominio.csproj": {
-              "projectPath": "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/AccidentesTransito.App.Dominio.csproj"
+            "C:\\Users\\cmmarting\\Desktop\\AccidentesTransito.App\\AccidentesTransito.App.Dominio\\AccidentesTransito.App.Dominio.csproj": {
+              "projectPath": "C:\\Users\\cmmarting\\Desktop\\AccidentesTransito.App\\AccidentesTransito.App.Dominio\\AccidentesTransito.App.Dominio.csproj"
             }
           }
         }
@@ -5890,7 +5890,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.401/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

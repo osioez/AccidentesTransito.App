@@ -1,0 +1,26 @@
+﻿@page
+@model AccidentesTransito.App.Frontend.Pages.AgenteModel
+@{
+}
+
+<div style="justify-content:center; margin: 30px; text-align: center;">
+			<h1>Bienvenidos al Modulo Agente de Tránsito.</h1>
+			<p style="font-size: 25px;margin: 30px;">En este apartado puede registrar accidentes y observar historicos de accidentes.</p>
+		</div>
+
+		<div class="container">
+			<div id="blog">
+				<div class="container">
+					<div class="div-img">
+						<img src="img/accident.jpg"><br>
+						<button type="button" class="btn btn-success"><a style="text-decoration: none; color: white;" asp-page="/Paginas_AT/RegistroAccidente">Registrar Accidentes</a></button>
+					</div>
+
+					<div class="div-img">
+						<img src="img/report.jpg"><br>
+						<button type="button" class="btn btn-success"><a style="text-decoration: none; color: white;" asp-page="/Paginas_AT/HistoricoAccidente">Histórico Accidentes</a></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

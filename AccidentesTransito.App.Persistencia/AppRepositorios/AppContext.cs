@@ -21,7 +21,7 @@ namespace AccidentesTransito.App.Persistencia
             if (!optionsBuilder.IsConfigured)
             {
                 // LocalDB (It only works with Windows)
-                // optionsBuilder.UseSqlServer("Data Source = localhost\\MSSQLLocalDB; Initial Catalog = AccidentesTransitoData");
+                //optionsBuilder.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = AccidentesTransito_v1_Data");
                 
                 // Localhost server connection
                 optionsBuilder.UseSqlServer("Server=localhost;Database=AccidentesTransitoData;User Id=sa;Password=gLfH%$%t");

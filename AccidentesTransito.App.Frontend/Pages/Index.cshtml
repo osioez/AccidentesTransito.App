@@ -1,0 +1,65 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div style="justify-content:center; margin: 30px; text-align: center;">
+                <h1>Bienvenidos al Sistema de Control de Accidentes de Tránsito.</h1>
+                <h3 style="justify-content:center; margin: 50px; text-align: center;">Seleccione un Rol para empezar
+                </h3>
+            </div>
+
+            <div class="container" style="margin: 40px;">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <div class="card" style="width: 18rem; margin: 20px">
+                            <img src="img/policia.jpg" alt="Esperando Imagen" width="289" height="280">
+                            <div class="card-body">
+                                <h5 class="card-title" style="text-align: center;">Agentes</h5>
+                                <p class="card-text">Aquí se realiza las operaciones con las que interactúan el Agente.
+                                </p>
+                            </div>
+                            <div class="card-body">
+                                <a href="agente.html" class="card-link"></a>
+                                <button type="button" class="btn btn-success"><a
+                                        style="text-decoration: none; color: white;" asp-page="/Paginas_AT/Agente">Ir a
+                                        Agente</a></button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card" style="width: 18rem; margin: 20px">
+                            <img src="img/ciudadano.jpg" alt="Esperando Imagen" width="289" height="280">
+                            <div class="card-body">
+                                <h5 class="card-title" style="text-align: center;">Ciudadanos</h5>
+                                <p class="card-text">Aquí se realiza las operaciones con las que interactúan el
+                                    Ciudadano.</p>
+                            </div>
+                            <div class="card-body">
+                                <button type="button" class="btn btn-success"><a
+                                        style="text-decoration: none; color: white;" asp-page="/Paginas_AT/Ciudadano">Ir a
+                                        Ciudadano</a></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card" style="width: 18rem; margin: 20px">
+                            <img src="img/administrador.jpg" alt="Esperando Imagen" width="289" height="280">
+                            <div class="card-body">
+                                <h5 class="card-title" style="text-align: center;">Administradores</h5>
+                                <p class="card-text">Aquí se realiza las operaciones con las que interactúa el
+                                    Administrador.</p>
+                            </div>
+                            <div class="card-body">
+                                <button type="button" class="btn btn-success"><a
+                                        style="text-decoration: none; color: white;" asp-page="/Paginas_AT/Administrador">Ir a
+                                        Administrador</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
