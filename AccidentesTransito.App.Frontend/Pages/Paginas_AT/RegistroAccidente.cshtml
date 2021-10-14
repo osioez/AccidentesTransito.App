@@ -9,40 +9,40 @@
 				<h3 style="margin: 20px;">Informacion general de accidentes</h3>
 			</div>
 		  <div class="col-md-4">
-		    <label for="inputEmail4" class="form-label">ID Agente</label>
-		    <input type="email" class="form-control" id="inputEmail4">
+		    <label for="inputEmail4" class="form-label">Ingrese documento</label>
+		    <input type="number" class="form-control" id="inputEmail4" placeholder="Ingrese documento">
 		  </div>
 
 		  <div class="col-md-4">
 		    <label for="inputPassword4" class="form-label">Cantidad Lesionados</label>
-		    <input type="password" class="form-control" id="inputPassword4">
+		    <input type="number" class="form-control" id="inputPassword4" placeholder="Numero lesionados">
 		  </div>
 
 		  <div class="col-md-4">
 		    <label for="inputPassword4" class="form-label">Cantidad Fallecidos</label>
-		    <input type="password" class="form-control" id="inputPassword4">
+		    <input type="number" class="form-control" id="inputPassword4" placeholder="Numero Fallecidos">
 		  </div>
 
 		  <div class="col-md-4">
 		    <label for="inputPassword4" class="form-label">Barrio</label>
-		    <input type="password" class="form-control" id="inputPassword4">
+		    <input type="text" class="form-control" id="inputPassword4" placeholder="Ingrese Barrio">
 		  </div>
 
 		  <div class="col-md-4">
 		    <label for="inputPassword4" class="form-label">Georreferencia X</label>
-		    <input type="password" class="form-control" id="inputPassword4">
+		    <input type="text" class="form-control" id="inputPassword4">
 		  </div>
 
 		  <div class="col-md-4">
 		    <label for="inputPassword4" class="form-label">Georreferencia Y</label>
-		    <input type="password" class="form-control" id="inputPassword4">
+		    <input type="text" class="form-control" id="inputPassword4">
 		  </div>
 
 		  <div class="col-12">
 		    <label for="inputAddress2" class="form-label">Descripccion</label>
-		    <textarea type="text" class="form-control"></textarea>
+		    <textarea type="text" class="form-control" placeholder="Descipccion aquí ..." style="height: 250;"></textarea>
 		  </div>
-		</form><br><br><hr><br><br>
+		</form><br><hr><br>
 		
 		<form class="row g-3" style="align-items: center;">
 			<div style="justify-content:center;text-align: center;">
@@ -58,6 +58,72 @@
 
 				<div class="col-4">
 					<button type="submit" class="btn btn-success">Buscar</button>
+					@* <!-- Button trigger modal --> *@
+					<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#registroVehiculo">Agregar</button>
+					@* <!-- Modal --> *@
+					<div class="modal fade" id="registroVehiculo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					  <div class="modal-dialog modal-lg">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h5 class="modal-title" id="exampleModalLabel">Registrar Vehículo</h5>
+					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					      </div>
+					      <div style="text-align: center;">
+						      <img src="~/img/vehiculo.png" alt="conductor 2" width="120px" height="100px" title="conductor 2" style="margin: 20px;" />
+						    </div>
+					      <div class="modal-body">
+					      	<form>
+					      		<div class="form-group row">
+					      			<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Placa:</label>
+					      			<div class="col-sm-10">
+								      	<input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Número Placa" aria-label="Número Placa">
+								      </div>
+								  </div>
+								  <br>
+								  <div class="form-group row">
+								    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Marca:</label>
+								    <div class="col-sm-10">
+								      <input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Marca" aria-label="Marca">
+								    </div>
+								  </div>
+								  <br>
+								  <div class="form-group row">
+								    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Modelo:</label>
+								    <div class="col-sm-10">
+								      <input type="number" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Modelo" aria-label="Modelo">
+								    </div>
+								  </div>
+								  <br>
+								  <div class="form-group row">
+								    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Tipo:</label>
+								    <div class="col-sm-10">
+								      <select class="form-select" id="autoSizingSelect">
+								      	<option selected>Seleccionar ...</option>
+								      	<option value=" Tipo 1"> Tipo 1</option>
+								      	<option value=" Tipo 2"> Tipo 2</option>
+								      	<option value=" Tipo 3"> Tipo 3</option>
+								      </select>
+								    </div>
+								  </div>
+								  <br>
+								  <div class="form-group row">
+								    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Capacidad:</label>
+								    <div class="col-sm-10">
+								      <input type="number" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Capacidad" aria-label="Capacidad">
+								    </div>
+								  </div>
+								  <br>
+								  <div class="modal-footer">
+								  	<a class="btn btn-danger" asp-page="./Close" title="Cerrar"><i class="fas fa-window-close" title="Cerrar"></i></a>
+										<a class="btn btn-success" asp-page="./Save" title="Guardar"><i class="fas fa-save" title="Guardar"></i></a>
+										<a class="btn btn-primary" asp-page="./Edit" title="Editar"><i class="fas fa-edit" title="Editar"></i></a>
+										<a class="btn btn-warning" asp-page="./Delete" title="Eliminar"><i class="fas fa-trash-alt" title="Eliminar"></i></a>
+								  </div>
+									</form>
+								</div>
+					    </div>
+					  </div>
+					</div>
 				</div>
 			</div>
 
@@ -113,6 +179,70 @@
 
 				<div class="col-4">
 					<button type="submit" class="btn btn-success">Buscar</button>
+					@* <!-- Button trigger modal --> *@
+					<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#registroConductor">Agregar</button>
+					@* <!-- Modal --> *@
+					<div class="modal fade" id="registroConductor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					  <div class="modal-dialog modal-lg">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h5 class="modal-title" id="exampleModalLabel">Registrar Conductor</h5>
+					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					      </div>
+					      <div style="text-align: center;">
+						      <img src="~/img/conductor 2.jpg" alt="conductor 2" width="120px" height="100px" title="conductor 2" style="margin: 20px;" />
+						    </div>
+					      <div class="modal-body">
+					      	<form>
+					      		<div class="form-group row">
+					      			<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Identificacion:</label>
+					      			<div class="col-sm-10">
+								      	<input type="number" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Número Identificacion" aria-label="Número Identificacion">
+								      </div>
+								  </div>
+								  <br>
+								  <div class="form-group row">
+								    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Licencia:</label>
+								    <div class="col-sm-10">
+								      <select class="form-select" id="autoSizingSelect">
+										<option selected>Tipo</option>
+										<option value="Clase A1">Clase A1</option>
+										<option value="Clase A2">Clase A2</option>
+										<option value="Clase B1">Clase B1</option>
+										<option value="Clase B2">Clase B2</option>
+										<option value="Clase B3">Clase B3</option>
+										<option value="Clase C1">Clase C1</option>
+										<option value="Clase C2">Clase C2</option>
+										<option value="Clase C3">Clase C3</option>
+              						</select>
+								    </div>
+								  </div>
+								  <br>
+								  <div class="form-group row">
+								    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Nombre:</label>
+								    <div class="col-sm-10">
+								      <input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Nombre" aria-label="Nombre">
+								    </div>
+								  </div>
+								  <br>
+								  <div class="form-group row">
+								    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Apellido:</label>
+								    <div class="col-sm-10">
+								      <input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Apellido" aria-label="Apellido">
+								    </div>
+								  </div>
+								  <br>
+								  <div class="modal-footer">
+								        <a class="btn btn-danger" asp-page="./Close" title="Cerrar"><i class="fas fa-window-close" title="Cerrar"></i></a>
+										<a class="btn btn-success" asp-page="./Save" title="Guardar"><i class="fas fa-save" title="Guardar"></i></a>
+										<a class="btn btn-primary" asp-page="./Edit" title="Editar"><i class="fas fa-edit" title="Editar"></i></a>
+										<a class="btn btn-warning" asp-page="./Delete" title="Eliminar"><i class="fas fa-trash-alt" title="Eliminar"></i></a>
+								      </div>
+									</form>
+								</div>
+					    </div>
+					  </div>
+					</div>
 				</div>
 			</div>
 
@@ -168,6 +298,64 @@
 
 				<div class="col-4">
 					<button type="submit" class="btn btn-success">Buscar</button>
+					@* <!-- Button trigger modal --> *@
+					<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#registroPeaton">Agregar</button>
+					@* <!-- Modal --> *@
+					<div class="modal fade" id="registroPeaton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					  <div class="modal-dialog modal-lg">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h5 class="modal-title" id="exampleModalLabel">Registrar Peatones</h5>
+					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					      </div>
+					      <div style="text-align: center;">
+						      <img src="~/img/peaton.jpg" alt="conductor 2" width="120px" height="100px" title="conductor 2" style="margin: 20px;" />
+						    </div>
+					      <div class="modal-body">
+					        <form>
+					      		<div class="form-group row">
+					      			<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Identificacion:</label>
+					      			<div class="col-sm-10">
+								      	<input type="number" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Número Identificacion" aria-label="Número Identificacion">
+								      </div>
+								  </div>
+								  <br>
+								  <div class="form-group row">
+								    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Discapacidad:</label>
+								    <div class="col-sm-10">
+								    	<select class="form-select" id="autoSizingSelect">
+								    		<option selected>Seleccion</option>
+								    		<option value="Si">Si</option>
+								    		<option value="No">No</option>
+								    	</select>
+								    </div>
+								  </div>
+								  <br>
+								  <div class="form-group row">
+								    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Nombre:</label>
+								    <div class="col-sm-10">
+								      <input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Nombre" aria-label="Nombre">
+								    </div>
+								  </div>
+								  <br>
+								  <div class="form-group row">
+								    <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Apellido:</label>
+								    <div class="col-sm-10">
+								      <input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Apellido" aria-label="Apellido">
+								    </div>
+								  </div>
+								  <br>
+								  <div class="modal-footer">
+										<a class="btn btn-danger" asp-page="./Close" title="Cerrar"><i class="fas fa-window-close" title="Cerrar"></i></a>
+										<a class="btn btn-success" asp-page="./Save" title="Guardar"><i class="fas fa-save" title="Guardar"></i></a>
+										<a class="btn btn-primary" asp-page="./Edit" title="Editar"><i class="fas fa-edit" title="Editar"></i></a>
+										<a class="btn btn-warning" asp-page="./Delete" title="Eliminar"><i class="fas fa-trash-alt" title="Eliminar"></i></a>
+								      </div>
+									</form>
+					      </div>
+					    </div>
+					  </div>
+					</div>
 				</div>
 			</div>
 
@@ -207,8 +395,8 @@
 			    </tr>
 			  </tbody>
 			</table>
-		</form><br><br>
-
+		</form>
+ 		<br><br>
 		<div class="col-12" style="align-items: center; justify-content: center; display: flex;">
 			<button style="margin: 15px;" type="submit" class="btn btn-success">Registrar Accidente</button>
 		</div>

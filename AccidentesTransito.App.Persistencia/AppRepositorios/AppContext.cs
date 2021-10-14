@@ -15,7 +15,6 @@ namespace AccidentesTransito.App.Persistencia
         public DbSet<AccidenteConductorVehiculo> AccidenteConductorVehiculo {get; set;}
 
         
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
