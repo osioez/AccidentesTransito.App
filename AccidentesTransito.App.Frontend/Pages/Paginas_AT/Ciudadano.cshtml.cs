@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace AccidentesTransito.App.Frontend.Pages
 {
+    
     public class CiudadanoModel : PageModel
     {
         public void OnGet()
