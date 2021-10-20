@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace AccidentesTransito.App.Dominio
 {
     public class Accidente
     {
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id {get; set;}
         public DateTime Fecha {get; set;}
         public Agente Agente {get;set;}

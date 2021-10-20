@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace AccidentesTransito.App.Frontend.Pages
 {
-    [Authorize]
+    //[Authorize]
     public class AgenteModel : PageModel
     {
         public void OnGet()

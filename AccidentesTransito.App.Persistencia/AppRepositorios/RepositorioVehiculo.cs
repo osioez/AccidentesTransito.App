@@ -14,6 +14,8 @@ namespace AccidentesTransito.App.Persistencia
         }
         public Vehiculo AddVehiculo(Vehiculo vehiculo)
         {
+            var TipoVehiculo = _appContext.TiposVehiculos.Find(vehiculo.TipoVehiculo.Id);
+            vehiculo.TipoVehiculo = TipoVehiculo;
             var VehiculoAdicionado = _appContext.Add(vehiculo);
             _appContext.SaveChanges();
             return VehiculoAdicionado.Entity;
@@ -22,7 +24,8 @@ namespace AccidentesTransito.App.Persistencia
         public void DeleteVehiculo(string placaVehiculo)
         {
             var VehiculoEncontrado = _appContext.Vehiculos.FirstOrDefault(v => v.Placa == placaVehiculo);
-            if(VehiculoEncontrado == null){
+            if (VehiculoEncontrado == null)
+            {
                 return;
             }
             _appContext.Remove(VehiculoEncontrado);
@@ -36,13 +39,17 @@ namespace AccidentesTransito.App.Persistencia
 
         public Vehiculo GetVehiculo(string placaVehiculo)
         {
-            return _appContext.Vehiculos.FirstOrDefault(v => v.Placa == placaVehiculo);
+            var VehiculoEncontrado = _appContext.Vehiculos.FirstOrDefault(v => v.Placa == placaVehiculo);
+            //var TipoVehiculo = _appContext.TiposVehiculos.Find(VehiculoEncontrado.TipoVehiculo.Id);
+            //VehiculoEncontrado.TipoVehiculo = TipoVehiculo;
+            return VehiculoEncontrado;
         }
 
         public Vehiculo UpdateVehiculo(Vehiculo vehiculo)
         {
             var vehiculoEncontrado = _appContext.Vehiculos.FirstOrDefault(v => v.Id == vehiculo.Id);
-            if(vehiculoEncontrado != null){
+            if (vehiculoEncontrado != null)
+            {
                 vehiculoEncontrado.CapacidadPasajeros = vehiculo.CapacidadPasajeros;
                 vehiculoEncontrado.Marca = vehiculo.Marca;
                 vehiculoEncontrado.Modelo = vehiculo.Modelo;
@@ -50,7 +57,7 @@ namespace AccidentesTransito.App.Persistencia
                 vehiculoEncontrado.Placa = vehiculo.Placa;
                 _appContext.SaveChanges();
             }
-           return vehiculoEncontrado;
+            return vehiculoEncontrado;
         }
     }
 }

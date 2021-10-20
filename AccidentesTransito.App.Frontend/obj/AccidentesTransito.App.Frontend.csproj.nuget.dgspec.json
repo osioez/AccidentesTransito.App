@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Claudia\\Documents\\AplicacionWeb\\AccidentesTransito.App\\AccidentesTransito.App.Frontend\\AccidentesTransito.App.Frontend.csproj": {}
+    "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Frontend/AccidentesTransito.App.Frontend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Claudia\\Documents\\AplicacionWeb\\AccidentesTransito.App\\AccidentesTransito.App.Frontend\\AccidentesTransito.App.Frontend.csproj": {
+    "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/AccidentesTransito.App.Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Claudia\\Documents\\AplicacionWeb\\AccidentesTransito.App\\AccidentesTransito.App.Frontend\\AccidentesTransito.App.Frontend.csproj",
-        "projectName": "AccidentesTransito.App.Frontend",
-        "projectPath": "C:\\Users\\Claudia\\Documents\\AplicacionWeb\\AccidentesTransito.App\\AccidentesTransito.App.Frontend\\AccidentesTransito.App.Frontend.csproj",
-        "packagesPath": "C:\\Users\\Claudia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Claudia\\Documents\\AplicacionWeb\\AccidentesTransito.App\\AccidentesTransito.App.Frontend\\obj\\",
+        "projectUniqueName": "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/AccidentesTransito.App.Dominio.csproj",
+        "projectName": "AccidentesTransito.App.Dominio",
+        "projectPath": "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/AccidentesTransito.App.Dominio.csproj",
+        "packagesPath": "/home/andresmya/.nuget/packages/",
+        "outputPath": "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Claudia\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/andresmya/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -37,24 +37,83 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.401/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Frontend/AccidentesTransito.App.Frontend.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Frontend/AccidentesTransito.App.Frontend.csproj",
+        "projectName": "AccidentesTransito.App.Frontend",
+        "projectPath": "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Frontend/AccidentesTransito.App.Frontend.csproj",
+        "packagesPath": "/home/andresmya/.nuget/packages/",
+        "outputPath": "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Frontend/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/andresmya/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/AccidentesTransito.App.Dominio.csproj": {
+                "projectPath": "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/AccidentesTransito.App.Dominio.csproj"
+              },
+              "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Persistencia/AccidentesTransito.App.Persistencia.csproj": {
+                "projectPath": "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Persistencia/AccidentesTransito.App.Persistencia.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[5.0.10, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[5.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[5.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[5.0.10, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -79,7 +138,85 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.401/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Persistencia/AccidentesTransito.App.Persistencia.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Persistencia/AccidentesTransito.App.Persistencia.csproj",
+        "projectName": "AccidentesTransito.App.Persistencia",
+        "projectPath": "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Persistencia/AccidentesTransito.App.Persistencia.csproj",
+        "packagesPath": "/home/andresmya/.nuget/packages/",
+        "outputPath": "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Persistencia/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/andresmya/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/AccidentesTransito.App.Dominio.csproj": {
+                "projectPath": "/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/AccidentesTransito.App.Dominio.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.401/RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -14,6 +14,13 @@ namespace AccidentesTransito.App.Persistencia
         }
         public Accidente AddAccidente(Accidente accidente)
         {
+
+            var agenteEncontrado = _appContext.Agentes.Find(accidente.Agente.Id);
+                peaton = peatonEncontrado;
+            foreach(var peaton in accidente.Peatones){
+                var peatonEncontrado = _appContext.Peatones.Find(peaton.Id);
+                peaton = peatonEncontrado;
+            }
             var AccidenteAdicionado = _appContext.Add(accidente);
             _appContext.SaveChanges();
             return AccidenteAdicionado.Entity;

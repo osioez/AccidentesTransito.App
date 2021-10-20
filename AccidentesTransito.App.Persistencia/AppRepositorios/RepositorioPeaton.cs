@@ -34,9 +34,9 @@ namespace AccidentesTransito.App.Persistencia
             return _appContext.Peatones;
         }
 
-        public Peaton GetPeaton(int idPeaton)
+        public Peaton GetPeaton(int documentoIdentidad)
         {
-            return _appContext.Peatones.FirstOrDefault(p => p.Id == idPeaton);
+            return _appContext.Peatones.FirstOrDefault(p => p.DocumentoIdentidad == documentoIdentidad);
         }
 
         public Peaton UpdatePeaton(Peaton peaton)
