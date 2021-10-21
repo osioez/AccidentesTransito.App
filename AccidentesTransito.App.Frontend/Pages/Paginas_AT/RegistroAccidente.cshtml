@@ -34,24 +34,20 @@
 				<th scope="col">PLACA</th>
 				<th scope="col">MARCA</th>
 				<th scope="col">MODELO</th>
-				
+				<th scope="col">TIPO VEHICULO</th>
 			</tr>
 		</thead>
 		<tbody>
-			@if (Model.VehiculosImplicados != null)
+			@if (Model.AccidenteConductorVehiculoImplicados != null)
 			{
-				@foreach (var vehiculo in Model.VehiculosImplicados)
+				@foreach (var acv in Model.AccidenteConductorVehiculoImplicados)
 				{
 					<tr>
-						<td>@vehiculo.Placa</td>
-						<td>@vehiculo.Marca</td>
-						<td>@vehiculo.Modelo</td>
-						
-						
-						<td>
-							<a class="btn btn-danger" title="Eliminar">
-							<i class="fas fa-window-close" title="Cerrar"></i></a>
-						</td>
+						<td>@acv.Vehiculo.Placa</td>
+						<td>@acv.Vehiculo.Marca</td>
+						<td>@acv.Vehiculo.Modelo</td>
+						<td>@acv.Vehiculo.TipoVehiculo.Nombre</td>
+					
 					</tr>
 				}	
 			}
@@ -154,6 +150,11 @@
 		<div class="col-sm-6">
 			<input name="cedulaConductorImplicado" required type="text" class="form-control" id="colFormLabel">
 		</div>
+		<hr>
+		<label for="colFormLabel" class="col-sm-2 col-form-label">Vehiculo asociado (Previamente ingresado)</label>
+		<div class="col-sm-6">
+			<input name="placaVehiculoAsociado" required type="text" class="form-control" id="colFormLabel">
+		</div>
 
 		<div class="col-4">
 			<button type="submit" class="btn btn-success">Buscar</button>
@@ -174,21 +175,26 @@
 				<th scope="col">Nombres</th>
 				<th scope="col">Apellidos</th>
 				<th scope="col">Tipo licencia</th>
+				<th scope="col">Vehiculo asociado</th>
 				
 			</tr>
 		</thead>
 		<tbody>
-				@if (Model.ConductoresImplicados != null)
+				@if (Model.AccidenteConductorVehiculoImplicados != null)
 			{
-				@foreach (var conductor in Model.ConductoresImplicados)
+				@foreach (var acv in Model.AccidenteConductorVehiculoImplicados)
 				{
-					<tr>
-						<td>@conductor.DocumentoIdentidad</td>
-						<td>@conductor.Nombres</td>
-						<td>@conductor.Apellidos</td>
-						<td>@conductor.TipoLicencia</td>
-						
-					</tr>
+					@if (acv.Conductor != null)
+					{
+						<tr>
+							<td>@acv.Conductor.DocumentoIdentidad</td>
+							<td>@acv.Conductor.Nombres</td>
+							<td>@acv.Conductor.Apellidos</td>
+							<td>@acv.Conductor.TipoLicencia</td>
+							<td>@acv.Vehiculo.Placa</td>
+							
+						</tr>
+					}
 				}	
 			}
 
@@ -395,44 +401,51 @@
 <hr><br><br>
 
 
-<form asp-page-handler="AgregarPeatonNuevo" method="POST class="row g-3">
+<form asp-page-handler="AgregarAccidente" method="POST" class="row g-3">
 	<div style="justify-content:center; margin: 50px; text-align: center;">
 		<h1>Formulario unico para el registro de accidentes de transito.</h1>
 		<h3 style="margin: 20px;">Informacion general de accidentes</h3>
 	</div>
 	<div class="col-md-4">
 		<label for="inputEmail4" class="form-label">Ingrese documento</label>
-		<input type="number" class="form-control" id="inputEmail4" placeholder="Ingrese documento">
+		<input required asp-for="Agente.DocumentoIdentidad" type="number" class="form-control" id="inputEmail4" placeholder="Ingrese documento">
 	</div>
 
 	<div class="col-md-4">
 		<label for="inputPassword4" class="form-label">Cantidad Lesionados</label>
-		<input type="number" class="form-control" id="inputPassword4" placeholder="Numero lesionados">
+		<input type="number" asp-for="Accidente.CantidadLesionados" class="form-control" id="inputPassword4" placeholder="Numero lesionados">
 	</div>
 
 	<div class="col-md-4">
 		<label for="inputPassword4" class="form-label">Cantidad Fallecidos</label>
-		<input type="number" class="form-control" id="inputPassword4" placeholder="Numero Fallecidos">
+		<input type="number" asp-for="Accidente.CantidadFallecidos" class="form-control" id="inputPassword4" placeholder="Numero Fallecidos">
 	</div>
 
 	<div class="col-md-4">
-		<label for="inputPassword4" class="form-label">Barrio</label>
-		<input type="text" class="form-control" id="inputPassword4" placeholder="Ingrese Barrio">
+		<label for="autoSizingSelect" class="form-label">Barrio</label>
+		<select required asp-for="Accidente.Barrio.Id" class="form-select" id="autoSizingSelect">
+			<option selected>Seleccionar ...</option>
+			<option value="1"> Santa Monica </option>
+			<option value="2"> Campo Alegre </option>
+			<option value="3"> El Silencio </option>
+			<option value="4"> Villa Verde </option>
+			<option value="5"> Campo Triste </option>
+		</select>
 	</div>
 
 	<div class="col-md-4">
 		<label for="inputPassword4" class="form-label">Georreferencia X</label>
-		<input type="text" class="form-control" id="inputPassword4">
+		<input asp-for="Accidente.GeoRreferenciaX" type="number" class="form-control" id="inputPassword4">
 	</div>
 
 	<div class="col-md-4">
 		<label for="inputPassword4" class="form-label">Georreferencia Y</label>
-		<input type="text" class="form-control" id="inputPassword4">
+		<input asp-for="Accidente.GeoRreferenciaY" type="number" class="form-control" id="inputPassword4">
 	</div>
 
 	<div class="col-12">
 		<label for="inputAddress2" class="form-label">Descripccion</label>
-		<textarea type="text" class="form-control" placeholder="Descipccion aquí ..." style="height: 250;"></textarea>
+		<textarea asp-for="Accidente.Descripcion" type="text" class="form-control" placeholder="Descipccion aquí ..." style="height: 250;"></textarea>
 	</div>
 	<div class="col-12" style="align-items: center; justify-content: center; display: flex;">
 		<button style="margin: 15px;" type="submit" class="btn btn-success">Registrar Accidente</button>

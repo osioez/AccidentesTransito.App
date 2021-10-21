@@ -34,9 +34,9 @@ namespace AccidentesTransito.App.Persistencia
             return _appContext.Agentes;
         }
 
-        public Agente GetAgente(int idAgente)
+        public Agente GetAgente(int documentoIdentidad)
         {
-            return _appContext.Agentes.FirstOrDefault(a => a.IdAgente == idAgente);
+            return _appContext.Agentes.FirstOrDefault(a => a.DocumentoIdentidad == documentoIdentidad);
         }
 
         public Agente UpdateAgente(Agente agente)

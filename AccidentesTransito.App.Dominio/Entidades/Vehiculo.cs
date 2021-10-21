@@ -14,6 +14,8 @@ namespace AccidentesTransito.App.Dominio
         public string Marca {get; set;}
         [Required (ErrorMessage = "Campo obligatorio")]
         public int Modelo {get; set;}
+        [ForeignKey("Category")]
+        public int TipoVehiculoId {get; set;}
         public TipoVehiculo TipoVehiculo {get; set;}
         [Required (ErrorMessage = "Campo obligatorio")]
         public string Placa {get; set;}

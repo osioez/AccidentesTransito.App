@@ -14,5 +14,9 @@ namespace AccidentesTransito.App.Persistencia
         void AgregarPeaton(Peaton peaton);
         //void EliminarPeaton(Peaton peaton);
          List<Peaton> ObtenerPeatones();
+        void AgregarAccidenteConductorVehiculo(AccidenteConductorVehiculo accidenteConductorVehiculo);
+         List<AccidenteConductorVehiculo> ObtenerAccidenteConductorVehiculo();
+         List<AccidenteConductorVehiculo> ActualizarAccidenteConductorVehiculo(Conductor nuevoConductorImplicado, string placaVehiculoAsociado);
+         void LimpiarRepositorioTemporal();
     }
 }

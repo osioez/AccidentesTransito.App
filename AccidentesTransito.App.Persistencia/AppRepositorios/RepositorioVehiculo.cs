@@ -40,8 +40,10 @@ namespace AccidentesTransito.App.Persistencia
         public Vehiculo GetVehiculo(string placaVehiculo)
         {
             var VehiculoEncontrado = _appContext.Vehiculos.FirstOrDefault(v => v.Placa == placaVehiculo);
-            //var TipoVehiculo = _appContext.TiposVehiculos.Find(VehiculoEncontrado.TipoVehiculo.Id);
-            //VehiculoEncontrado.TipoVehiculo = TipoVehiculo;
+            if (VehiculoEncontrado != null){
+                var TipoVehiculo = _appContext.TiposVehiculos.Find(VehiculoEncontrado.TipoVehiculoId);
+                VehiculoEncontrado.TipoVehiculo = TipoVehiculo;
+            }
             return VehiculoEncontrado;
         }
 

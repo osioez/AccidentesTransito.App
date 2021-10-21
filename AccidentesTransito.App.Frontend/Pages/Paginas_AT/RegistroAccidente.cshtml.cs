@@ -16,6 +16,7 @@ namespace AccidentesTransito.App.Frontend.Pages
         private readonly IRepositorioConductor repositorioConductor;
         private readonly IRepositorioAccidente repositorioAccidente;
         private readonly IRepositorioTipoVehiculo repositorioTipoVehiculo;
+        private readonly IRepositorioAgente repositorioAgente;
         private readonly IRepositorioTemporal repositorioTemporal;
 
         [BindProperty]
@@ -28,12 +29,15 @@ namespace AccidentesTransito.App.Frontend.Pages
         public Conductor Conductor { get; set; }
         [BindProperty]
         public Peaton Peaton { get; set; }
+        [BindProperty]
+        public Agente Agente { get; set; }
 
         public IEnumerable<Vehiculo> Vehiculos { set; get; }
 
         public List<Vehiculo> VehiculosImplicados { set; get; }
         public List<Conductor> ConductoresImplicados { set; get; }
         public List<Peaton> PeatonesImplicados { set; get; }
+        public List<AccidenteConductorVehiculo> AccidenteConductorVehiculoImplicados { set; get; }
         public RegistroAccidenteModel(IRepositorioTemporal repositorioTemporal)
         {
             this.repositorioVehiculo = new RepositorioVehiculo(new AccidentesTransito.App.Persistencia.AppContext());
@@ -41,6 +45,7 @@ namespace AccidentesTransito.App.Frontend.Pages
             this.repositorioConductor = new RepositorioConductor(new AccidentesTransito.App.Persistencia.AppContext());
             this.repositorioAccidente = new RepositorioAccidente(new AccidentesTransito.App.Persistencia.AppContext());
             this.repositorioTipoVehiculo = new RepositorioTipoVehiculo(new AccidentesTransito.App.Persistencia.AppContext());
+            this.repositorioAgente = new RepositorioAgente(new AccidentesTransito.App.Persistencia.AppContext());
             this.repositorioTemporal = repositorioTemporal;
         }
 
@@ -51,19 +56,23 @@ namespace AccidentesTransito.App.Frontend.Pages
         public void OnPostAgregarVehiculoImplicado(string placaVehiculoImplicado)
         {
 
-            VehiculosImplicados = repositorioTemporal.ObtenerVehiculos();
-            ConductoresImplicados = repositorioTemporal.ObtenerConductores();
+            //VehiculosImplicados = repositorioTemporal.ObtenerVehiculos();
+            //ConductoresImplicados = repositorioTemporal.ObtenerConductores();
+            AccidenteConductorVehiculoImplicados = repositorioTemporal.ObtenerAccidenteConductorVehiculo();
             PeatonesImplicados = repositorioTemporal.ObtenerPeatones();
 
             if (placaVehiculoImplicado != null)
             {
                 placaVehiculoImplicado = placaVehiculoImplicado.ToUpper();
-                if (!VehiculosImplicados.Exists(vehiculo => vehiculo.Placa == placaVehiculoImplicado))
+                if (!AccidenteConductorVehiculoImplicados.Exists(acv => acv.Vehiculo.Placa == placaVehiculoImplicado))
                 {
                     Vehiculo nuevoVehiculosImplicado = repositorioVehiculo.GetVehiculo(placaVehiculoImplicado);
                     if (nuevoVehiculosImplicado != null)
                     {
-                        repositorioTemporal.AgregarVehiculo(nuevoVehiculosImplicado);
+                        var nuevoAccidenteConductorVehiculo = new AccidenteConductorVehiculo();
+                        nuevoAccidenteConductorVehiculo.Vehiculo = nuevoVehiculosImplicado;
+                        repositorioTemporal.AgregarAccidenteConductorVehiculo(nuevoAccidenteConductorVehiculo);
+                        //repositorioTemporal.AgregarVehiculo(nuevoVehiculosImplicado);
                         //VehiculosImplicados.Add(nuevoVehiculosImplicado);
                     }
                 }
@@ -75,34 +84,48 @@ namespace AccidentesTransito.App.Frontend.Pages
                 {
                     return Page();
                 }*/
+            AccidenteConductorVehiculoImplicados = repositorioTemporal.ObtenerAccidenteConductorVehiculo();
+            PeatonesImplicados = repositorioTemporal.ObtenerPeatones();
 
                 repositorioVehiculo.AddVehiculo(Vehiculo);
                 return Page();
         }
 
-        public void OnPostAgregarConductorImplicado(int cedulaConductorImplicado)
+        public void OnPostAgregarConductorImplicado(int cedulaConductorImplicado, string placaVehiculoAsociado)
         {
 
-            VehiculosImplicados = repositorioTemporal.ObtenerVehiculos();
-            ConductoresImplicados = repositorioTemporal.ObtenerConductores();
+            AccidenteConductorVehiculoImplicados = repositorioTemporal.ObtenerAccidenteConductorVehiculo();
             PeatonesImplicados = repositorioTemporal.ObtenerPeatones();
 
-            if (cedulaConductorImplicado != 0)
+            if (cedulaConductorImplicado != 0 
+                && placaVehiculoAsociado != null 
+                && AccidenteConductorVehiculoImplicados.Exists(acv => acv.Vehiculo.Placa == placaVehiculoAsociado.ToUpper()))
             {
+                placaVehiculoAsociado = placaVehiculoAsociado.ToUpper();
 
-                if (!ConductoresImplicados.Exists(c => c.DocumentoIdentidad == cedulaConductorImplicado))
-                {
+            var conductorExiste = false;
+            foreach(var acv in AccidenteConductorVehiculoImplicados){
+                if (acv.Conductor != null){
+                    if(acv.Conductor.DocumentoIdentidad == cedulaConductorImplicado){
+                        conductorExiste = true;
+                    }
+                }
+            }
+                if(!conductorExiste){
+
                     Conductor nuevoConductorImplicado = repositorioConductor.GetConductor(cedulaConductorImplicado);
                     if (nuevoConductorImplicado != null)
                     {
-                        repositorioTemporal.AgregarConductor(nuevoConductorImplicado);
-                        
+                        repositorioTemporal.ActualizarAccidenteConductorVehiculo(nuevoConductorImplicado, placaVehiculoAsociado);
                     }
                 }
             }
         }
         public IActionResult OnPostAgregarConductorNuevo()
         {
+            AccidenteConductorVehiculoImplicados = repositorioTemporal.ObtenerAccidenteConductorVehiculo();
+            PeatonesImplicados = repositorioTemporal.ObtenerPeatones();
+            
             repositorioConductor.AddConductor(Conductor);
                 return Page();
         }
@@ -110,8 +133,7 @@ namespace AccidentesTransito.App.Frontend.Pages
         public void OnPostAgregarPeatonImplicado(int cedulaPeatonImplicado)
         {
 
-            VehiculosImplicados = repositorioTemporal.ObtenerVehiculos();
-            ConductoresImplicados = repositorioTemporal.ObtenerConductores();
+            AccidenteConductorVehiculoImplicados = repositorioTemporal.ObtenerAccidenteConductorVehiculo();
             PeatonesImplicados = repositorioTemporal.ObtenerPeatones();
 
             if (cedulaPeatonImplicado != 0)
@@ -130,27 +152,25 @@ namespace AccidentesTransito.App.Frontend.Pages
         }
         public IActionResult OnPostAgregarPeatonNuevo()
         {
+            AccidenteConductorVehiculoImplicados = repositorioTemporal.ObtenerAccidenteConductorVehiculo();
+            PeatonesImplicados = repositorioTemporal.ObtenerPeatones();
+
             repositorioPeaton.AddPeaton(Peaton);
                 return Page();
         }
-        public void OnPostAgregarAccidente(int cedulaPeatonImplicado)
+        public void OnPostAgregarAccidente()
         {
+            Accidente.Agente = repositorioAgente.GetAgente(Agente.DocumentoIdentidad);
+            if(Accidente.Agente != null){
 
-            PeatonesImplicados = repositorioTemporal.ObtenerPeatones();
+            Accidente.Peatones = repositorioTemporal.ObtenerPeatones();
+            Accidente.AccidenteConductorVehiculo = repositorioTemporal.ObtenerAccidenteConductorVehiculo();
+            repositorioAccidente.AddAccidente(Accidente);
 
-            if (cedulaPeatonImplicado != 0)
-            {
-
-                if (!PeatonesImplicados.Exists(p => p.DocumentoIdentidad == cedulaPeatonImplicado))
-                {
-                    Peaton nuevoPeatonImplicado = repositorioPeaton.GetPeaton(cedulaPeatonImplicado);
-                    if (nuevoPeatonImplicado != null)
-                    {
-                        repositorioTemporal.AgregarPeaton(nuevoPeatonImplicado);
-                        
-                    }
-                }
+            repositorioTemporal.LimpiarRepositorioTemporal();
             }
+
+
         }
     }
 }
