@@ -2,4 +2,44 @@
 @model AccidentesTransito.App.Frontend.Pages.CiudadanoModel
 @{
 }
-<h1>Vista Cuidadano para modificar</h1>
+<h1>Cuidadano - Consulta por documento de identidad</h1>
+
+<form asp-page-handler="ConsultarDocumentoIdentidad" method="GET" class="row g-3" style="align-items: center;">
+	<div class="row mb-3">
+		<label for="documentoIdentidad" class="col-sm-2 col-form-label">Documento de identidad</label>
+		<div class="col-sm-6">
+			<input required name="documentoIdentidad" type="text" class="form-control" id="documentoIdentidad">
+		</div>
+	</div>
+			<button type="submit" class="btn btn-success" id="buscarVehiculoImplicado">Buscar</button>
+
+</form><br><br>
+
+<table class="table table-bordered table-hover" id="accidentesConductor">
+		<thead>
+			<tr>
+				<th scope="col">Fecha</th>
+				<th scope="col">Georreferencia X</th>
+				<th scope="col">Georreferencia Y</th>
+				<th scope="col">Cantidad lesionados</th>
+				<th scope="col">Cantidad fallecidos</th>
+				<th scope="col">Descripción</th>
+			</tr>
+		</thead>
+		<tbody>
+			@if (Model.AccidentesConductor != null)
+			{
+				@foreach (var ac in Model.AccidentesConductor)
+				{
+					<tr>
+						<td>@ac.Fecha</td>
+						<td>@ac.GeoRreferenciaX</td>
+						<td>@ac.GeoRreferenciaY</td>
+						<td>@ac.CantidadLesionados</td>
+						<td>@ac.CantidadFallecidos</td>
+						<td>@ac.Descripcion</td>
+					</tr>
+				}	
+			}
+		</tbody>
+	</table>

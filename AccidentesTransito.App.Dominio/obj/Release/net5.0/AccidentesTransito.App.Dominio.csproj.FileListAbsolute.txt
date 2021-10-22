@@ -1,0 +1,12 @@
+/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/bin/Release/net5.0/AccidentesTransito.App.Dominio.deps.json
+/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/bin/Release/net5.0/AccidentesTransito.App.Dominio.dll
+/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/bin/Release/net5.0/ref/AccidentesTransito.App.Dominio.dll
+/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/bin/Release/net5.0/AccidentesTransito.App.Dominio.pdb
+/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/obj/Release/net5.0/AccidentesTransito.App.Dominio.csproj.AssemblyReference.cache
+/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/obj/Release/net5.0/AccidentesTransito.App.Dominio.GeneratedMSBuildEditorConfig.editorconfig
+/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/obj/Release/net5.0/AccidentesTransito.App.Dominio.AssemblyInfoInputs.cache
+/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/obj/Release/net5.0/AccidentesTransito.App.Dominio.AssemblyInfo.cs
+/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/obj/Release/net5.0/AccidentesTransito.App.Dominio.csproj.CoreCompileInputs.cache
+/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/obj/Release/net5.0/AccidentesTransito.App.Dominio.dll
+/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/obj/Release/net5.0/ref/AccidentesTransito.App.Dominio.dll
+/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Dominio/obj/Release/net5.0/AccidentesTransito.App.Dominio.pdb

@@ -81,13 +81,13 @@ namespace AccidentesTransito.App.Persistencia.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AccidenteId")
+                    b.Property<int>("AccidenteId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ConductorId")
+                    b.Property<int>("ConductorId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("VehiculoId")
+                    b.Property<int>("VehiculoId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -109,7 +109,9 @@ namespace AccidentesTransito.App.Persistencia.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Apellidos")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("DocumentoIdentidad")
                         .HasColumnType("int");
@@ -121,7 +123,9 @@ namespace AccidentesTransito.App.Persistencia.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Nombres")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
@@ -151,16 +155,22 @@ namespace AccidentesTransito.App.Persistencia.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Apellidos")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("DocumentoIdentidad")
                         .HasColumnType("int");
 
                     b.Property<string>("Nombres")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("TipoLicencia")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
@@ -175,13 +185,17 @@ namespace AccidentesTransito.App.Persistencia.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Apellidos")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("DocumentoIdentidad")
                         .HasColumnType("int");
 
                     b.Property<string>("Nombres")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<bool>("PresentaDiscapacidad")
                         .HasColumnType("bit");
@@ -217,15 +231,17 @@ namespace AccidentesTransito.App.Persistencia.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Marca")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Modelo")
                         .HasColumnType("int");
 
                     b.Property<string>("Placa")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TipoVehiculoId")
+                    b.Property<int>("TipoVehiculoId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -269,15 +285,21 @@ namespace AccidentesTransito.App.Persistencia.Migrations
                 {
                     b.HasOne("AccidentesTransito.App.Dominio.Accidente", "Accidente")
                         .WithMany("AccidenteConductorVehiculo")
-                        .HasForeignKey("AccidenteId");
+                        .HasForeignKey("AccidenteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("AccidentesTransito.App.Dominio.Conductor", "Conductor")
                         .WithMany()
-                        .HasForeignKey("ConductorId");
+                        .HasForeignKey("ConductorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("AccidentesTransito.App.Dominio.Vehiculo", "Vehiculo")
                         .WithMany()
-                        .HasForeignKey("VehiculoId");
+                        .HasForeignKey("VehiculoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Accidente");
 
@@ -290,7 +312,9 @@ namespace AccidentesTransito.App.Persistencia.Migrations
                 {
                     b.HasOne("AccidentesTransito.App.Dominio.TipoVehiculo", "TipoVehiculo")
                         .WithMany()
-                        .HasForeignKey("TipoVehiculoId");
+                        .HasForeignKey("TipoVehiculoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("TipoVehiculo");
                 });

@@ -385,3 +385,8 @@ C:/Users/Claudia/Documents/AplicacionWeb/AccidentesTransito.App/AccidentesTransi
 /home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Frontend/bin/Debug/net5.0/AccidentesTransito.App.Persistencia.dll
 /home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Frontend/bin/Debug/net5.0/AccidentesTransito.App.Persistencia.pdb
 /home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Frontend/bin/Debug/net5.0/AccidentesTransito.App.Dominio.pdb
+/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Frontend/bin/Debug/net5.0/publish/web.config
+/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Frontend/bin/Debug/net5.0/publish/AccidentesTransito.App.Frontend.deps.json
+/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Frontend/bin/Debug/net5.0/publish/AccidentesTransito.App.Frontend.runtimeconfig.json
+/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Frontend/bin/Debug/net5.0/publish/appsettings.Development.json
+/home/andresmya/Documents/MisionTIC/proyecto-accidentes-transito/AccidentesTransito.App/AccidentesTransito.App.Frontend/bin/Debug/net5.0/publish/appsettings.json

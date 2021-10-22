@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/83d5bc50-5129-449d-8df9-e2e80f21d543/resourceGroups/misiontic-accidentes/providers/Microsoft.Web/sites/devsolutionsteam-accidentes",
+    "appService.deploySubpath": "publish"
+}

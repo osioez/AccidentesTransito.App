@@ -23,7 +23,10 @@ namespace AccidentesTransito.App.Persistencia
                 //optionsBuilder.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = AccidentesTransito_v1_Data");
                 
                 // Localhost server connection
-                optionsBuilder.UseSqlServer("Server=localhost;Database=AccidentesTransitoData;User Id=sa;Password=gLfH%$%t");
+                //optionsBuilder.UseSqlServer("Server=localhost;Database=AccidentesTransitoData;User Id=sa;Password=gLfH%$%t");
+
+                // Azure
+                optionsBuilder.UseSqlServer("Server=tcp:misiontic-accidentes-azure-db-server.database.windows.net,1433;Initial Catalog=misiontic-accidentes-azure-db;Persist Security Info=False;User ID=perruqui;Password=Azure159753*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
             }
         }
